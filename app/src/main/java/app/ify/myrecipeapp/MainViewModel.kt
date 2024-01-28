@@ -11,6 +11,10 @@ class MainViewModel : ViewModel(){
     private val _categoriesState = mutableStateOf(RecipeState())
     val categoriesState: State<RecipeState> = _categoriesState
 
+    init {
+        fetchCategories()
+    }
+
     private fun fetchCategories() {
         viewModelScope.launch {
             try {
